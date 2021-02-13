@@ -18,13 +18,13 @@ def getIPs():
         a.pop()
         a = dict(s.split("=") for s in a)["ip"]
     except Exception:
-        print("Warning: IPv4 not detected.")
+        pass
     try:
         aaaa = requests.get("http://[2606:4700:4700::1111]/cdn-cgi/trace").text.split("\n")
         aaaa.pop()
         aaaa = dict(s.split("=") for s in aaaa)["ip"]
     except Exception:
-        print("Warning: IPv6 not detected.")
+        pass
     ips = []
 
     if(a.find(".") > -1):
