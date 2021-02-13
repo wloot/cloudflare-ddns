@@ -20,13 +20,13 @@ def getIPs():
     a = ""
     aaaa = ""
     try:
-        a = requests.get("http://1.1.1.1/cdn-cgi/trace").text.split("\n")
+        a = requests.get("https://1.1.1.1/cdn-cgi/trace").text.split("\n")
         a.pop()
         a = dict(s.split("=") for s in a)["ip"]
     except Exception:
         pass
     try:
-        aaaa = requests.get("http://[2606:4700:4700::1111]/cdn-cgi/trace").text.split("\n")
+        aaaa = requests.get("https://[2606:4700:4700::1111]/cdn-cgi/trace").text.split("\n")
         aaaa.pop()
         aaaa = dict(s.split("=") for s in aaaa)["ip"]
     except Exception:
